@@ -27,6 +27,12 @@ const Clear = styled.img`
   width: 50px;
 `
 
+const Sendicon = styled.img`
+  height: 50px;
+  width: 50px;
+  cursor: center;
+`
+
 const Appheader = styled.div`
   background-color: #c39c89;
   height: 80px;
@@ -97,16 +103,16 @@ min-height: 100vh;
 width: 100%;
 `
 
-const Card = styled.div`
-   position: relative;
-  display: center;
-  vertical-align: middle;
-  z-index: 4;
-  height: 400px;
-  width: 600px;
-  background-color: #eee2d3;
-`
 
+const Textarea = styled.textarea`
+    border-radius: 3px;
+    padding: 4px 8px;
+    border: 1px solid black;
+    height: 400px;
+    width: 600px;
+    background-color: white;
+    font-size: 35px;
+`
 
 function App() {
 
@@ -122,6 +128,12 @@ function App() {
     setDelete(4);
 }
 
+   const [Send, setSend] = useState(5);
+
+   const send = () => {
+      setSend(6);
+  }
+
   const [showModal, setShowModal] = useState(false);
 
   const submitForm = (e) => {
@@ -130,25 +142,36 @@ function App() {
   }
 
 
+  const [textarea, setText] = useState('');
+
+
+
   return (
     <div>
       <Appheader>
         <HeaderText>blog</HeaderText>
         <Pentab 
-          src={"./images/pen.svg"} onClick = {() => setPage('Page')}></Pentab>
+          src={"./images/pen.svg"} onClick = {() => setPage('page')}></Pentab>
           {Page === 1
           ? <div/>
           : <Frombackground>
-              <Card>
 
-               <Clear
-                    src={"./images/clear.svg"} onClick = {() => setDelete('Delete')}></Clear>
-                   {Delete === 3
-                    ? <div/>
-                    : <div cancel = {() => setShowModal(false)} />
-                   }  
+        <Sendicon
+          src={"./images/send.svg"} onClick = {() => setSend('send')}></Sendicon>
+         {Send === 5
+          ? <div/>
+          : <div />
+          }
 
-              </Card>
+        <Clear
+          src={"./images/clear.svg"} onClick = {() => setDelete('delete')}></Clear>
+          {Delete === 3
+           ? <div/>
+           : <div cancel = {() => setShowModal(false)} />
+          }  
+
+              <Textarea row="10" cols="20">おすすめのスイーツやカフェの情報を共有しよう！</Textarea>
+
           </Frombackground>
           } 
 
@@ -170,9 +193,6 @@ function App() {
         <SampleBox />
         <SampleBox />
       </Main>
-      {/* <Modal>
-        <From />
-      </Modal> */}
     </div>
   );
 }
