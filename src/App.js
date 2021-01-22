@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import styled from "styled-components";
 import { Modal } from "./madal.js";
 
@@ -41,8 +41,10 @@ const Appheader = styled.div`
 `;
 
 const HeaderText = styled.text`
+  position: relative;
   height: 30px;
-  padding-right: 50px;
+  top: -8px;
+  margin-left: 70px;
   font-size: 37px;
   color: white;
 `;
@@ -60,8 +62,9 @@ const Appbackground = styled.div`
 
 const Biglogo = styled.text`
   position: relative;
-  top: 260px;
-  left: 0px;
+  
+  top: 230px;
+  left: 33px;
   vertical-align: middle;
   padding: 500px;
   font-size: 250px;
@@ -114,30 +117,35 @@ const Textarea = styled.textarea`
     font-size: 35px;
 `
 
+const Inputbutton = styled.input`
+  height: 50px;
+  width: 65px;
+  font-size: 20px;
+`
+
 function App() {
 
   const [Page, setPage] = useState(1);
-    
   const page = () => {
     setPage(2);
   }
 
-  const [Delete, setDelete] = useState(3);
 
+  const depage = () => {
+    setPage(1);
+  }
+
+
+  const [Delete, setDelete] = useState(3);
   const clear = () => {
     setDelete(4);
 }
 
-   const [Send, setSend] = useState(5);
 
-   const send = () => {
-      setSend(6);
-  }
 
   const [showModal, setShowModal] = useState(false);
 
-  const submitForm = (e) => {
-      e.preventDefault();
+  const SubmitForm = () => {
       setShowModal(true);
   }
 
@@ -156,25 +164,22 @@ function App() {
           ? <div/>
           : <Frombackground>
 
-        <Sendicon
-          src={"./images/send.svg"} onClick = {() => setSend('send')}></Sendicon>
-         {Send === 5
-          ? <div/>
-          : <div />
-          }
+        
 
+         <Inputbutton type = "submit" value="shere"/>
+
+        
         <Clear
-          src={"./images/clear.svg"} onClick = {() => setDelete('delete')}></Clear>
-          {Delete === 3
+          src={"./images/clear.svg"} onClick = {() => depage()}></Clear>
+           {Delete === 3
            ? <div/>
-           : <div cancel = {() => setShowModal(false)} />
-          }  
+           : <SubmitForm cancel = {() => setShowModal(false)}/>
+          }   
 
               <Textarea row="10" cols="20">おすすめのスイーツやカフェの情報を共有しよう！</Textarea>
 
           </Frombackground>
-          } 
-
+          }
 
       </Appheader>
       <Appbackground>
@@ -198,5 +203,3 @@ function App() {
 }
 
 export default App;
-
-// <img src={logo} className="App-logo" alt="logo" />
