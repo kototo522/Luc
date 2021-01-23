@@ -16,6 +16,8 @@ const Coffee = styled.img`
   display: flex;
   position: center;
   top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   height: 650px;
   width: 100vw;
   object-fit: contain;
@@ -25,6 +27,8 @@ const Appheader = styled.div`
   position: absolute;
   background-color: #c39c89;
   top: 0;
+  margin-left: auto;
+  margin-right: auto;
   height: 80px;
   width: 100%;
 `;
@@ -40,7 +44,7 @@ const HeaderText = styled.text`
   z-index: 1;
 `;
 
-const Pentab = styled.img`
+const Penicon = styled.img`
   position: absolute;
   top: 50%;
   right: 10%;
@@ -51,9 +55,9 @@ const Pentab = styled.img`
 
 const Main = styled.div`
   position: fixed;
+  margin: 0 auto;
   z-index: 2;
   top: 80px;
-  left: 0;
   height: calc(100vh - 80px);
   width: 100vw;
   padding-top: 80px;
@@ -75,12 +79,14 @@ const Biglogo = styled.div`
 const Postbox = styled.div`
   position: relative;
   top: 450px;
-  height: 200px;
-  width: 700px;
+  left: 50%;
+  height: 25%;
+  width: max(60%, 250px);
   margin-top: 80px;
   border-radius: 10px;
+  padding: 20px;
   background-color: rgba(238, 226, 211, 0.6);
-  transform: translateX(50%);
+  transform: translateX(-50%);
   font-size: 30px;
   color: #957e80;
   &::after {
@@ -107,7 +113,7 @@ function App() {
         <Appheader>
           <Appheader />
           <HeaderText>Cafe&Coffee</HeaderText>
-          <Pentab
+          <Penicon
             src={"./images/pen.svg"}
             onClick={() => setIsOpenModal(true)}
           />

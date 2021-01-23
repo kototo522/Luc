@@ -4,6 +4,8 @@ import styled from "styled-components";
 const Formbackground = styled.div`
   position: center;
   display: fixed;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgba(149, 126, 128, 0.75);
   z-index: 4;
   min-height: 100vh;
