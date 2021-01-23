@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import { Modal } from "./madal.js";
+
 
 
 const Coffee = styled.img`
@@ -20,18 +20,15 @@ const Pentab = styled.img`
 `;
 
 const Clear = styled.img`
-  position: center;
+  position: fixed;
+  margin-top: 60px;
+  margin-left: 300px;
   cursor: pointer;
   z-index: 5;
   height: 50px;
   width: 50px;
 `
 
-const Sendicon = styled.img`
-  height: 50px;
-  width: 50px;
-  cursor: center;
-`
 
 const Appheader = styled.div`
   background-color: #c39c89;
@@ -41,9 +38,9 @@ const Appheader = styled.div`
 `;
 
 const HeaderText = styled.text`
-  position: relative;
+  position: fixed;
   height: 30px;
-  top: -8px;
+  top: 20px;
   margin-left: 70px;
   font-size: 37px;
   color: white;
@@ -62,7 +59,6 @@ const Appbackground = styled.div`
 
 const Biglogo = styled.text`
   position: relative;
-  
   top: 230px;
   left: 33px;
   vertical-align: middle;
@@ -99,8 +95,8 @@ const SampleBox = styled.div`
 `;
 
 const Frombackground=styled.div`
-position: relative;
-background-color: rgba(195, 156, 137, 0.6);
+position: fixed;
+background-color: rgba(149, 126, 128, 0.75);
 z-index: 3;
 min-height: 100vh;
 width: 100%;
@@ -108,19 +104,31 @@ width: 100%;
 
 
 const Textarea = styled.textarea`
-    border-radius: 3px;
-    padding: 4px 8px;
+    position: fixed;
+    vertical-align: middle;
+    margin-left: 400px;
+    margin-top: 90px;
+    border-radius: 10px;
     border: 1px solid black;
     height: 400px;
     width: 600px;
-    background-color: white;
+    background-color: #c39c89;
+    border: white;
     font-size: 35px;
+    color: #eee2d3;
 `
 
 const Inputbutton = styled.input`
+  position: fixed;
+  margin-top: 430px;
+  margin-left: 900px;
   height: 50px;
   width: 65px;
   font-size: 20px;
+  color: #c39c89;
+  background-color: #eee2d3;
+  border: white;
+  z-index: 100;
 `
 
 function App() {
@@ -164,8 +172,6 @@ function App() {
           ? <div/>
           : <Frombackground>
 
-        
-
          <Inputbutton type = "submit" value="shere"/>
 
         
@@ -176,7 +182,9 @@ function App() {
            : <SubmitForm cancel = {() => setShowModal(false)}/>
           }   
 
-              <Textarea row="10" cols="20">おすすめのスイーツやカフェの情報を共有しよう！</Textarea>
+              <Textarea row="10" cols="20">おすすめのスイーツやカフェの情報を共有しよう！
+              
+              </Textarea>
 
           </Frombackground>
           }
