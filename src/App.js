@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import Form from "./components/Form";
 
 const Appbackground = styled.div`
   background-color: #e7b09f;
@@ -22,9 +22,9 @@ const Coffee = styled.img`
 `;
 
 const Appheader = styled.div`
-  position: relative;
+  position: absolute;
   background-color: #c39c89;
-  margin-top: 0px;
+  top: 0;
   height: 80px;
   width: 100%;
 `;
@@ -32,9 +32,10 @@ const Appheader = styled.div`
 const HeaderText = styled.text`
   position: fixed;
   height: 30px;
-  top: 10px;
-  margin-left: 70px;
+  top: 15px;
+  margin-left: 5%;
   font-size: 37px;
+  font-family: serif;
   color: white;
   z-index: 1;
 `;
@@ -55,125 +56,71 @@ const Main = styled.div`
   left: 0;
   height: calc(100vh - 80px);
   width: 100vw;
+  padding-top: 80px;
   overflow-y: scroll;
   overflow-x: hidden;
 `;
 
 const Biglogo = styled.div`
-  position:absolute;
-  top: 230px;
+  position: absolute;
+  top: 23%;
   left: 50%;
-  font-size: 250px;
+  font-size: 10em;
+  font-family: serif;
   color: #c39c89;
   transform: translateX(-50%);
+  z-index: 1;
 `;
 
-const SampleBox = styled.div`
+const Postbox = styled.div`
   position: relative;
   top: 450px;
   height: 200px;
   width: 700px;
+  margin-top: 80px;
   border-radius: 10px;
-  background-color: rgba(238, 226, 211, 0.8);
+  background-color: rgba(238, 226, 211, 0.6);
   transform: translateX(50%);
+  font-size: 30px;
+  color: #957e80;
   &::after {
     position: relative;
     top: 200px;
     display: block;
-    height: 80px;
+    height: 120px;
     content: "";
   }
 `;
 
-const Frombackground = styled.div`
-  position: fixed;
-  background-color: rgba(149, 126, 128, 0.75);
-  z-index: 3;
-  min-height: 100vh;
-  width: 100%;
-`;
-
-const Textarea = styled.textarea`
-  position: fixed;
-  vertical-align: middle;
-  margin-left: 400px;
-  margin-top: 90px;
-  border-radius: 10px;
-  border: 1px solid black;
-  height: 400px;
-  width: 600px;
-  background-color: #c39c89;
-  border: white;
-  font-size: 35px;
-  color: #eee2d3;
-  box-shadow: white;
-`;
-
-const Clear = styled.img`
-  position: fixed;
-  margin-top: 60px;
-  margin-left: 300px;
-  cursor: pointer;
-  z-index: 4;
-  height: 50px;
-  width: 50px;
-`;
-
-const Inputbutton = styled.input`
-  position: fixed;
-  margin-top: 430px;
-  margin-left: 900px;
-  height: 50px;
-  width: 65px;
-  font-size: 20px;
-  color: #c39c89;
-  background-color: #eee2d3;
-  border: white;
-  z-index: 5;
-`;
-
 function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [info, setInfo] = useState("");
   const [infoList, setinfoList] = useState([]);
 
   const addInfoList = (info) => {
-    setinfoList([...infoList, info]);
+    setinfoList([...infoList, info].reverse());
     setIsOpenModal(false);
   };
 
   return (
     <div>
       <Appbackground>
-      <Appheader>
-        <HeaderText>blog</HeaderText>
-      <Appheader/>
-        <Pentab src={"./images/pen.svg"} onClick={() => setIsOpenModal(true)}/>
-        {isOpenModal && (
-          <Frombackground>
-            <Inputbutton value="shere" onClick={() => addInfoList(info)} />
-
-            <Clear
-              src={"./images/clear.svg"}
-              onClick={() => setIsOpenModal(false)}
-            />
-
-            <Textarea
-              row="10"
-              cols="20"
-              placeholder={"おすすめのスイーツやカフェの情報を共有しよう！"}
-              value={info}
-              onChange={(e) => setInfo(e.target.value)}
-            />
-          </Frombackground>
-        )}
-      </Appheader>
+        <Appheader>
+          <Appheader />
+          <HeaderText>Cafe&Coffee</HeaderText>
+          <Pentab
+            src={"./images/pen.svg"}
+            onClick={() => setIsOpenModal(true)}
+          />
+          {isOpenModal && (
+            <Form setIsOpenModal={setIsOpenModal} addInfoList={addInfoList} />
+          )}
+        </Appheader>
         <Coffee src={"./images/coffee.jpg"} />
       </Appbackground>
       <Main>
-        <Biglogo>text</Biglogo>
+        <Biglogo>Luc</Biglogo>
         {infoList.map((info) => (
-          <SampleBox>{info}</SampleBox>
+          <Postbox>{info}</Postbox>
         ))}
       </Main>
     </div>
