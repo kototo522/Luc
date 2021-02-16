@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Header from "./components/Header";
 import Form from "./components/Form";
 
 const Appbackground = styled.div`
@@ -21,36 +22,6 @@ const Coffee = styled.img`
   height: 650px;
   width: 100vw;
   object-fit: contain;
-`;
-
-const Appheader = styled.div`
-  position: absolute;
-  background-color: #c39c89;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  height: 80px;
-  width: 100%;
-`;
-
-const HeaderText = styled.text`
-  position: fixed;
-  height: 30px;
-  top: 15px;
-  margin-left: 5%;
-  font-size: 37px;
-  font-family: serif;
-  color: white;
-  z-index: 1;
-`;
-
-const Penicon = styled.img`
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  height: 30px;
-  cursor: pointer;
-  transform: translateY(-50%);
 `;
 
 const Main = styled.div`
@@ -108,19 +79,13 @@ function App() {
   };
 
   return (
-    <div>
+    <html>
+      <Header setIsOpenModal={setIsOpenModal}>
+        {isOpenModal && (
+          <Form setIsOpenModal={setIsOpenModal} addInfoList={addInfoList} />
+        )}
+      </Header>
       <Appbackground>
-        <Appheader>
-          <Appheader />
-          <HeaderText>Cafe&Coffee</HeaderText>
-          <Penicon
-            src={"./images/pen.svg"}
-            onClick={() => setIsOpenModal(true)}
-          />
-          {isOpenModal && (
-            <Form setIsOpenModal={setIsOpenModal} addInfoList={addInfoList} />
-          )}
-        </Appheader>
         <Coffee src={"./images/coffee.jpg"} />
       </Appbackground>
       <Main>
@@ -129,7 +94,7 @@ function App() {
           <Postbox>{info}</Postbox>
         ))}
       </Main>
-    </div>
+    </html>
   );
 }
 

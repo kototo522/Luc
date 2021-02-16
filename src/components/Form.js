@@ -66,8 +66,7 @@ const Inputbutton = styled.input`
 
 function Form({ setIsOpenModal, addInfoList }) {
   const [info, setInfo] = useState("");
-
-  return (
+    return (
     <Formbackground>
       <Inputbutton value=" share  " onClick={() => addInfoList(info)} />
 
@@ -86,5 +85,4 @@ function Form({ setIsOpenModal, addInfoList }) {
     </Formbackground>
   );
 }
-
 export default Form;
