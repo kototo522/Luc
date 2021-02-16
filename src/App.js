@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import Spin from "./components/Spin";
 
 const Appbackground = styled.div`
   background-color: #e7b09f;
@@ -72,14 +73,22 @@ const Postbox = styled.div`
 function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [infoList, setinfoList] = useState([]);
+  const [isLoad, setIsLoad] = useState(true);
 
   const addInfoList = (info) => {
     setinfoList([...infoList, info].reverse());
     setIsOpenModal(false);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoad(false);
+    }, 1000);
+  }, [])
+
   return (
     <html>
+      {isLoad && <Spin />}
       <Header setIsOpenModal={setIsOpenModal}>
         {isOpenModal && (
           <Form setIsOpenModal={setIsOpenModal} addInfoList={addInfoList} />
