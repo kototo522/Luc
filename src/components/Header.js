@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
+import BorderColorIcon from "@material-ui/icons/BorderColor";
+import "./Icon.css";
 
 const Appheader = styled.header`
   position: absolute;
@@ -22,20 +24,14 @@ const HeaderText = styled.text`
   z-index: 1;
 `;
 
-const Penicon = styled.img`
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  height: 30px;
-  cursor: pointer;
-  transform: translateY(-50%);
-`;
-
 function Header({ setIsOpenModal, children }) {
   return (
     <Appheader>
       <HeaderText>Cafe&Coffee</HeaderText>
-      <Penicon src={"./images/pen.svg"} onClick={() => setIsOpenModal(true)} />
+      <BorderColorIcon
+        className="Penicon"
+        onClick={() => setIsOpenModal(true)}
+      />
       {children}
     </Appheader>
   );

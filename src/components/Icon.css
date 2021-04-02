@@ -1,0 +1,21 @@
+.Penicon {
+  position: absolute;
+  top: 65%;
+  right: 10%;
+  height: 55px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.Deletebutton {
+  position: fixed;
+  color: white;
+  top: 30%;
+  left: 30%;
+  cursor: pointer;
+  z-index: 10;
+  height: 60px;
+  width: 60px;
+  transform: translate(-180%, -150%);
+}

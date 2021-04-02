@@ -84,7 +84,7 @@ function App() {
     setTimeout(() => {
       setIsLoad(false);
     }, 1000);
-  }, [])
+  }, []);
 
   return (
     <html>
@@ -95,7 +95,7 @@ function App() {
         )}
       </Header>
       <Appbackground>
-        <Coffee src={"./images/coffee.jpg"} />
+        <Coffee src={"./coffee.jpg"} />
       </Appbackground>
       <Main>
         <Biglogo>Luc</Biglogo>

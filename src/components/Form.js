@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import ClearIcon from "@material-ui/icons/Clear";
+import "./Icon.css";
 
 const Formbackground = styled.div`
   position: center;
@@ -36,17 +38,6 @@ const Textarea = styled.textarea`
   padding: 20px;
 `;
 
-const Deletebutton = styled.img`
-  position: fixed;
-  top: 30%;
-  left: 30%;
-  cursor: pointer;
-  z-index: 10;
-  height: 50px;
-  width: 50px;
-  transform: translate(-180%, -150%);
-`;
-
 const Inputbutton = styled.input`
   position: fixed;
   top: 70%;
@@ -66,7 +57,7 @@ const Inputbutton = styled.input`
 
 function Form({ setIsOpenModal, addInfoList }) {
   const [info, setInfo] = useState("");
-    return (
+  return (
     <Formbackground>
       <Inputbutton value=" share  " onClick={() => addInfoList(info)} />
 
@@ -78,8 +69,8 @@ function Form({ setIsOpenModal, addInfoList }) {
         onChange={(e) => setInfo(e.target.value)}
       />
 
-      <Deletebutton
-        src={"./images/clear.svg"}
+      <ClearIcon
+        className="Deletebutton"
         onClick={() => setIsOpenModal(false)}
       />
     </Formbackground>
