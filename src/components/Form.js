@@ -21,14 +21,11 @@ const Textarea = styled.textarea`
   left: 50%;
   top: 50%;
   border-radius: 10px;
-  border: 1px solid black;
   height: 40%;
   width: max(40%, 250px);
   background-color: #c39c89;
-  border: white;
   font-size: 24px;
   color: #eee2d3;
-  box-shadow: white;
   z-index: 8;
   resize: none;
   transform: translate(-50%, -50%);

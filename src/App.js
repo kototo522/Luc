@@ -7,9 +7,7 @@ import Spin from "./components/Spin";
 const Appbackground = styled.div`
   background-color: #e7b09f;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 0;
   height: 100vh;
   width: 100vw;
 `;
@@ -95,7 +93,7 @@ function App() {
         )}
       </Header>
       <Appbackground>
-        <Coffee src={"./coffee.jpg"} />
+        <Coffee src={"./image.webp"} />
       </Appbackground>
       <Main>
         <Biglogo>Luc</Biglogo>

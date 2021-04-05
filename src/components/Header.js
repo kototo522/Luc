@@ -6,18 +6,16 @@ import "./Icon.css";
 const Appheader = styled.header`
   position: absolute;
   background-color: #c39c89;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   height: 80px;
   width: 100%;
 `;
 
 const HeaderText = styled.text`
-  position: fixed;
-  height: 30px;
+  position: absolute;
+  height: 50px;
   top: 15px;
-  margin-left: 5%;
+  margin: auto 0 auto 5%;
   font-size: 37px;
   font-family: serif;
   color: white;
